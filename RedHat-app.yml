@@ -1,0 +1,5 @@
+- name: Clone a repo with separate git directory
+  git:
+    repo: https://github.com/ikambarov/Flaskex.git 
+    dest: /home/centos/Flaskex
+  

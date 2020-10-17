@@ -1,0 +1,5 @@
+[centos]
+centos ansible_host=3.131.13.113 ansible_user=centos
+
+[ubuntu]
+ubuntu ansible_host=18.188.192.152 ansible_user=ubuntu

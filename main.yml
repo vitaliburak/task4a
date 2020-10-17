@@ -1,0 +1,33 @@
+- hosts: all
+  tasks:      
+  - name: Update hostname
+    import_role:
+      name: ansible-role-hostname
+    vars:
+      server_name: "{{ inventory_hostname }}"
+
+  - name: Run prerequisites
+    import_role:
+      name: ansible-role-prerequisites
+
+  - name: Install Python and PIP
+    import_role:
+      name: ansible-role-python
+
+  - include_tasks: "{{ ansible_os_family }}-app.yml"    
+
+  - name: Reqirements install
+    shell: pip3 install -r requirements.txt  chdir=Flaskex
+
+  - name: change ownership of /Flaskex
+    file:
+      path: /home/ubuntu/Flaskex/
+      state: directory
+      recurse: yes
+      owner: ubuntu
+      group: ubuntu
+    when: ansible_os_family == 'Debian'
+    
+  - name: run my script!
+    shell: 'nohup python3 Flaskex/app.py &'  
+     

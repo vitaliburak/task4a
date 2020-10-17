@@ -1,0 +1,22 @@
+---
+- name: Install python36 RedHat
+  package:
+    name: epel-release
+    state: present
+    update_cache: yes
+  when: ansible_os_family =='RedHat'
+- name: install pkgs
+  package:
+    name: 
+    - python3 
+    state: present 
+    update_cache: yes 
+  when: ansible_os_family =='RedHat'   
+   
+- name: Install python36 Debian
+  package:
+    name: python3-pip
+    state: present
+    force_apt_get: yes
+    update_cache: yes   
+  when: ansible_os_family == 'Debian'  

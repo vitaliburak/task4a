@@ -1,0 +1,9 @@
+galaxy_info:
+  author: Vitalii Burak 
+  description: A simple role which updates hostname
+  company: na
+  license: MIT
+  min_ansible_version: 1.4
+  galaxy_tags:
+    - hostname
+dependencies: []
